@@ -8,13 +8,15 @@ import { ReadingsComponent } from './readings/readings.component';
 import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule} from '@angular/common/http';
+import { PeriodsComponent } from './periods/periods.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ReadingsComponent,
-    HomeComponent
+    HomeComponent,
+    PeriodsComponent
   ],
   imports: [
     BrowserModule,
