@@ -1,3 +1,11 @@
+# Install angular (do once)
+1. `npm install -g @angular/cli`
+
+# To run:
+1. `npm install` to install dependencies
+1. `ng serve -o` to start aplication
+
+
 # ReadingsFe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
