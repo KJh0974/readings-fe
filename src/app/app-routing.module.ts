@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {ReadingsComponent} from './readings/readings.component';
-import {PeriodsComponent} from './periods/periods.component';
+import {InvoicesComponent} from './invoices/invoices.component';
+import {MetersComponent} from './meters/meters.component';
+import {AddressesComponent} from './addresses/addresses.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,16 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'readings',
-    component: ReadingsComponent
+    path: 'invoices',
+    component: InvoicesComponent
   },
   {
-    path: 'periods',
-    component: PeriodsComponent
+    path: 'meters',
+    component: MetersComponent
+  },
+  {
+    path: 'addresses',
+    component: AddressesComponent
   }
 ];
 

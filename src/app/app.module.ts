@@ -4,19 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ReadingsComponent } from './readings/readings.component';
 import { HomeComponent } from './home/home.component';
 
 import { HttpClientModule} from '@angular/common/http';
-import { PeriodsComponent } from './periods/periods.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { MetersComponent } from './meters/meters.component';
+import { AddressesComponent } from './addresses/addresses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ReadingsComponent,
     HomeComponent,
-    PeriodsComponent
+    InvoicesComponent,
+    MetersComponent,
+    AddressesComponent
   ],
   imports: [
     BrowserModule,
