@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Address</th>
+    <th scope="col">Postal code</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let address of objects$">
+    <th scope="row">{{ address.id }}</th>
+    <td *ngIf="address.type === 'APT'">{{ address.street }} {{ address.houseNumber }}-{{ address.apartmentNumber }}, {{ address.city }}</td>
+    <td *ngIf="address.type === 'HSE'">{{ address.street }} {{ address.houseNumber }}, {{ address.city }}</td>
+    <td>{{ address.postalCode }}</td>
+  </tr>
+  </tbody>
+</table>
