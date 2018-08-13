@@ -9,12 +9,20 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let reading of readings$">
-    <th scope="row">{{ reading.id }}</th>
-    <td>{{ reading.meter.type }}</td>
-    <td>{{ reading.meter.serialNumber }}</td>
-    <td>{{ reading.value }}</td>
-    <td>{{ reading.date }}</td>
-  </tr>
+    <tr *ngFor="let reading of readings$">
+      <th scope="row">{{ reading.id }}</th>
+      <td>{{ reading.meter.type }}</td>
+      <td>{{ reading.meter.serialNumber }}</td>
+      <td>{{ reading.value }}</td>
+      <td>{{ reading.date }}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Add reading</th>
+      <td></td>
+      <td></td>
+      <td><input #inputValue placeholder="value" /></td>
+      <td><button (click)="addReading(inputValue.value)">Add value</button></td>
+    </tr>
   </tbody>
 </table>
