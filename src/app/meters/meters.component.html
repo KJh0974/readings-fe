@@ -2,6 +2,8 @@
   <thead>
   <tr>
     <th scope="col">#</th>
+    <th scope="col">Type</th>
+    <th scope="col">Serial number</th>
     <th scope="col">Value</th>
     <th scope="col">Date</th>
   </tr>
@@ -9,6 +11,8 @@
   <tbody>
   <tr *ngFor="let reading of readings$">
     <th scope="row">{{ reading.id }}</th>
+    <td>{{ reading.meter.type }}</td>
+    <td>{{ reading.meter.serialNumber }}</td>
     <td>{{ reading.value }}</td>
     <td>{{ reading.date }}</td>
   </tr>
