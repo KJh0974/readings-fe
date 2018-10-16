@@ -21,7 +21,7 @@ export class MetersComponent implements OnInit {
 
   addReading(inputValue) {
     this.data.addReading(inputValue, this.readings$[0].period.id, this.readings$[0].meter.id).subscribe(
-      data => this.readings$.push(data)
+      data => (<Object[]> this.readings$).push(data)
     );
   }
 }
