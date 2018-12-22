@@ -1,28 +1,41 @@
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Type</th>
-    <th scope="col">Serial number</th>
-    <th scope="col">Value</th>
-    <th scope="col">Date</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let reading of readings$">
-      <th scope="row">{{ reading.id }}</th>
-      <td>{{ reading.meter.type }}</td>
-      <td>{{ reading.meter.serialNumber }}</td>
-      <td>{{ reading.value }}</td>
-      <td>{{ reading.date }}</td>
-    </tr>
-
-    <tr>
-      <th scope="row">Add reading</th>
-      <td></td>
-      <td></td>
-      <td><input #inputValue placeholder="value" /></td>
-      <td><button (click)="addReading(inputValue.value)">Add value</button></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div id="object-accordion" *ngFor="let object of objects$">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#object{{ object.id }}">
+          <span *ngIf="object.type === 'APT'">{{ object.street }} {{ object.houseNumber }}-{{ object.apartmentNumber }}, {{ object.city }}</span>
+          <span *ngIf="object.type === 'HSE'">{{ object.street }} {{ object.houseNumber }}, {{ object.city }}</span>
+          <span>, {{ object.postalCode }}</span>
+        </a>
+      </div>
+      <div id="object{{ object.id }}" class="collapse show" data-parent="#object-accordion">
+        <div class="card-body">
+          <div id="period-accordion" *ngFor="let period of object.periods">
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#period{{ period.id }}">
+                  {{ period.name }}
+                </a>
+              </div>
+              <div id="period{{ period.id }}" class="collapse show" data-parent="#period-accordion">
+                <div class="card-body">
+                  <table class="table table-hover">
+                    <tbody>
+                      <tr *ngFor="let meter of period.meters">
+                        <td>{{ meter.type }}</td>
+                        <td>{{ meter.serialNumber }}<br>{{ meter.verificationDate }}</td>
+                        <td>{{ meter.readings[0].oldValue }}</td>
+                        <td>{{ meter.readings[0].newValue }}</td>
+                        <td>{{ meter.readings[0].newValue - meter.readings[0].oldValue }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,20 +8,20 @@ import {DataService} from '../data.service';
 })
 export class MetersComponent implements OnInit {
 
-  readings$: Object;
+  objects$: Object;
 
   constructor(private data: DataService) {
   }
 
   ngOnInit() {
-    this.data.getReadings().subscribe(
-      data => this.readings$ = data
+    this.data.getObjects().subscribe(
+      data => this.objects$ = data
     );
   }
 
-  addReading(inputValue) {
-    this.data.addReading(inputValue, this.readings$[0].period.id, this.readings$[0].meter.id).subscribe(
-      data => (<Object[]> this.readings$).push(data)
-    );
-  }
+  // addReading(inputValue) {
+  //   this.data.addReading(inputValue, this.readings$[0].period.id, this.readings$[0].meter.id).subscribe(
+  //     data => (<Object[]> this.readings$).push(data)
+  //   );
+  // }
 }
